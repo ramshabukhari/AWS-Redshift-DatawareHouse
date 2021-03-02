@@ -1,0 +1,4 @@
+crypto
+boto3
+boto
+botocore
