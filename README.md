@@ -3,7 +3,7 @@
 
 ## Architecture Diagram
 
-![Basic Architecture of AWS based Reshift DataWareHouse](./DWH.png)
+![Basic Architecture of AWS based Reshift DataWareHouse](./docs/images/DWH.png)
 
 ## Architectural Components
 
@@ -18,7 +18,7 @@
 
 The data is divided in multiple datasets for better understanding and organization. Please refer to the following data schema
 
-![Schema Diagram](./schema.png) 
+![Schema Diagram](./docs/images/schema.png) 
 
 
 ## ETL Flow
@@ -32,9 +32,9 @@ The data is divided in multiple datasets for better understanding and organizati
 - **Two separate DAGS are written. The first DAG shows the full pipeline follow using 3/4 data files. Another separate DAG is written to show how upsert will work if the existing data in Redshift is updated.**
 
 
-![Airflow ETL Pipeline](./airflow_dag_1.png)
+![Airflow ETL Pipeline](./docs/images/airflow_dag_1.png)
 
-![Airflow ETL Pipeline - Upsert](./airflow_dag_2.png)
+![Airflow ETL Pipeline - Upsert](./docs/images/airflow_dag_2.png)
 
 ### Data Acquistion
 - The dataset has been acquired from Kaggle.Particular point of interests were; the data is real hence the analytics can be well trusted.Also, the real life data is expected to offer a challenging cleaning task.Moreover, the dataset had well over 0.1 million records so the loading to production DWH can present practical problems that needed to be addressed. The dataset was multidimensional proving to be a good case study for datawarehousing task.
@@ -63,29 +63,29 @@ The data is divided in multiple datasets for better understanding and organizati
 - 1. **What is the price range of the orders for which people opt more installments for payments?**  
       The data shows most of the payment values are within 0 to 800 Brazillian Real (148 USD) and customers ought to take upto 10 installments for the payments. The number of installments go as high as 24.
 
-![Payments values & No. of Installments](./payment_value_installments.png)
+![Payments values & No. of Installments](./docs/images/payment_value_installments.png)
 
 - 2. **What is the range of price values for all the orders placed between the year 2016-2018?**  
       The data shows most of the orders placed were under 2000 Brazillian Real (350 USD) with a very few orders going upto 1000+ USD range.
 
-![Orders & Prices](./orders_price.png)
+![Orders & Prices](./docs/images/orders_price.png)
 
 - 3. **What is the most common payment method in Brazallian E-commerce market? How does it compare to other mode of payments?**  
       The dataset shows credit card has been the most common mode of payment with almost 43,000 USD (80%) of transactions. The second mhas been ticket based payments (called boleto in Brazil) making upto 17% of transaction.Debit Cards & Vouchers are the least used mode of payments accounting only 4% of total transactions each.
 
-![Various Mode of Payments in Brazillian E-Commerce Market](./payment_type.png)
+![Various Mode of Payments in Brazillian E-Commerce Market](./docs/images/payment_type.png)
 
 - 4. **What is the distribution of physical weights of the items purchased through E-commerce?**  
       The distrubution is shown below with most of the products under 5kg weight.
 
-![Weight of Products Shipped](./products_weight.png)
+![Weight of Products Shipped](./docs/images/products_weight.png)
 
 - Some other visuals includes reviews score distribution and sellers and buyers distribution according to state and zip codes.
-![Reviews Score Distribution](./reviews_score.png)
+![Reviews Score Distribution](./docs/images/reviews_score.png)
 
-![Sellers Distribution](./sellers_geographical.png)
+![Sellers Distribution](./docs/images/sellers_geographical.png)
 
-![Customers Distribution](./customers_states_zip.png)
+![Customers Distribution](./docs/images/customers_states_zip.png)
      
 
 
