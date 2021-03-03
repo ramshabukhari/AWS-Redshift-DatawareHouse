@@ -35,274 +35,189 @@ default_args = {
 # Using the context manager alllows you not to duplicate the dag parameter in each operator
 with DAG('e_commerce_update_dag', default_args=default_args, schedule_interval='@daily',catchup=False) as dag:
 
-
-    # clean_order_reviews_dataset_4 = PythonOperator(
-    #         task_id='clean_order_reviews_dataset_4',
-    #         python_callable=clean_reviews_dataset,
-    #         op_kwargs={'filename' :'/usr/local/airflow/dags/dags/data_files_split/order_reviews_part_4.csv'}
-    # )
+    clean_order_reviews_dataset_4 = PythonOperator(
+            task_id='clean_order_reviews_dataset_4',
+            python_callable=clean_reviews_dataset,
+            op_kwargs={'filename' :'/usr/local/airflow/dags/dags/data_files_split/order_reviews_part_4.csv'}
+    )
     
-    # upload_S3_customers_4 = PythonOperator(
-    #                 task_id='upload_S3_customers_4',
-    #                 python_callable=upload_file_to_S3_with_hook,
-    #                 op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/customers_part_4.csv',
-    #                             'key': 'customers_part_4.csv',
-    #                             'bucket_name': 'brazillian-e-commerce-data-update'}
-    #         )
+    upload_S3_customers_4 = PythonOperator(
+                    task_id='upload_S3_customers_4',
+                    python_callable=upload_file_to_S3_with_hook,
+                    op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/customers_part_4.csv',
+                                'key': 'customers_part_4.csv',
+                                'bucket_name': 'brazillian-e-commerce-data-update'}
+            )
 
-    # upload_S3_geolocation_4 = PythonOperator(
-    #                 task_id='upload_S3_geolocation_4',
-    #                 python_callable=upload_file_to_S3_with_hook,
-    #                 op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/geolocation_part_4.csv',
-    #                             'key': 'geolocation_part_4.csv',
-    #                             'bucket_name': 'brazillian-e-commerce-data-update'}
-    #         )
-
-
-    # upload_S3_order_items_4 = PythonOperator(
-    #                 task_id='upload_S3_order_items_4',
-    #                 python_callable=upload_file_to_S3_with_hook,
-    #                 op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/order_items_part_4.csv',
-    #                             'key': 'order_items_part_4.csv',
-    #                             'bucket_name': 'brazillian-e-commerce-data-update'}
-    #         )
+    upload_S3_geolocation_4 = PythonOperator(
+                    task_id='upload_S3_geolocation_4',
+                    python_callable=upload_file_to_S3_with_hook,
+                    op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/geolocation_part_4.csv',
+                                'key': 'geolocation_part_4.csv',
+                                'bucket_name': 'brazillian-e-commerce-data-update'}
+            )
 
 
-    # upload_S3_order_payments_4 = PythonOperator(
-    #                 task_id='upload_S3_order_payments_4',
-    #                 python_callable=upload_file_to_S3_with_hook,
-    #                 op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/order_payments_part_4.csv',
-    #                             'key': 'order_payments_part_4.csv',
-    #                             'bucket_name': 'brazillian-e-commerce-data-update'}
-    #         )
+    upload_S3_order_items_4 = PythonOperator(
+                    task_id='upload_S3_order_items_4',
+                    python_callable=upload_file_to_S3_with_hook,
+                    op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/order_items_part_4.csv',
+                                'key': 'order_items_part_4.csv',
+                                'bucket_name': 'brazillian-e-commerce-data-update'}
+            )
 
 
-    # upload_S3_order_reviews_4 = PythonOperator(
-    #                 task_id='upload_S3_order_reviews_4',
-    #                 python_callable=upload_file_to_S3_with_hook,
-    #                 op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/order_reviews_part_4.csv',
-    #                             'key': 'order_reviews_part_4.csv',
-    #                             'bucket_name': 'brazillian-e-commerce-data-update'}
-    #         )
+    upload_S3_order_payments_4 = PythonOperator(
+                    task_id='upload_S3_order_payments_4',
+                    python_callable=upload_file_to_S3_with_hook,
+                    op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/order_payments_part_4.csv',
+                                'key': 'order_payments_part_4.csv',
+                                'bucket_name': 'brazillian-e-commerce-data-update'}
+            )
 
 
-    # upload_S3_orders_4 = PythonOperator(
-    #                 task_id='upload_S3_orders_4',
-    #                 python_callable=upload_file_to_S3_with_hook,
-    #                 op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/orders_part_4.csv',
-    #                             'key': 'orders_part_4.csv',
-    #                             'bucket_name': 'brazillian-e-commerce-data-update'}
-    #         )
-
-    # upload_S3_products_4 = PythonOperator(
-    #                 task_id='upload_S3_products_4',
-    #                 python_callable=upload_file_to_S3_with_hook,
-    #                 op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/products_part_4.csv',
-    #                             'key': 'products_part_4.csv',
-    #                             'bucket_name': 'brazillian-e-commerce-data-update'}
-    #         )
+    upload_S3_order_reviews_4 = PythonOperator(
+                    task_id='upload_S3_order_reviews_4',
+                    python_callable=upload_file_to_S3_with_hook,
+                    op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/order_reviews_part_4.csv',
+                                'key': 'order_reviews_part_4.csv',
+                                'bucket_name': 'brazillian-e-commerce-data-update'}
+            )
 
 
-    # upload_S3_sellers_4 = PythonOperator(
-    #                 task_id='upload_S3_sellers_4',
-    #                 python_callable=upload_file_to_S3_with_hook,
-    #                 op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/sellers_part_4.csv',
-    #                             'key': 'sellers_part_4.csv',
-    #                             'bucket_name': 'brazillian-e-commerce-data-update'}
-    #         )
+    upload_S3_orders_4 = PythonOperator(
+                    task_id='upload_S3_orders_4',
+                    python_callable=upload_file_to_S3_with_hook,
+                    op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/orders_part_4.csv',
+                                'key': 'orders_part_4.csv',
+                                'bucket_name': 'brazillian-e-commerce-data-update'}
+            )
+
+    upload_S3_products_4 = PythonOperator(
+                    task_id='upload_S3_products_4',
+                    python_callable=upload_file_to_S3_with_hook,
+                    op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/products_part_4.csv',
+                                'key': 'products_part_4.csv',
+                                'bucket_name': 'brazillian-e-commerce-data-update'}
+            )
 
 
-    # upload_S3_product_category_name_translation_3 = PythonOperator(
-    #                 task_id='upload_S3_product_category_name_translation_3',
-    #                 python_callable=upload_file_to_S3_with_hook,
-    #                 op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/product_category_name_translation_part_3.csv',
-    #                             'key': 'product_category_name_translation_3.csv',
-    #                             'bucket_name': 'brazillian-e-commerce-data-update'}
-    #         )
+    upload_S3_sellers_4 = PythonOperator(
+                    task_id='upload_S3_sellers_4',
+                    python_callable=upload_file_to_S3_with_hook,
+                    op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/sellers_part_4.csv',
+                                'key': 'sellers_part_4.csv',
+                                'bucket_name': 'brazillian-e-commerce-data-update'}
+            )
 
 
-    # load_customers = S3ToRedshiftOperator(
-    #     task_id="load_customers",
-    #     redshift_conn_id="redshift_conn",
-    #     table="customers_staging",
-    #     s3_bucket="brazillian-e-commerce-data-update",
-    #     s3_path="customers",
-    #     s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
-    #     s3_secret_access_key="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",
-    #     delimiter=",",
-    #     region="ca-central-1")
-
-    # load_geolocation = S3ToRedshiftOperator(
-    #     task_id="load_geolocation",
-    #     redshift_conn_id="redshift_conn",
-    #     table="geolocation_staging",
-    #     s3_bucket="brazillian-e-commerce-data-update",
-    #     s3_path="geolocation",
-    #     s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
-    #     s3_secret_access_key="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",
-    #     delimiter=",",
-    #     region="ca-central-1")
-
-    # load_order_items = S3ToRedshiftOperator(
-    #     task_id="load_order_items",
-    #     redshift_conn_id="redshift_conn",
-    #     table="order_items_staging",
-    #     s3_bucket="brazillian-e-commerce-data-update",
-    #     s3_path="order_items",
-    #     s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
-    #     s3_secret_access_key="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",
-    #     delimiter=",",
-    #     region="ca-central-1")
-
-    # load_order_payments = S3ToRedshiftOperator(
-    #     task_id="load_order_payments",
-    #     redshift_conn_id="redshift_conn",
-    #     table="order_payments_staging",
-    #     s3_bucket="brazillian-e-commerce-data-update",
-    #     s3_path="order_payments",
-    #     s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
-    #     s3_secret_access_key="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",
-    #     delimiter=",",
-    #     region="ca-central-1")
-
-    # load_order_reviews = S3ToRedshiftOperator(
-    #     task_id="load_order_reviews",
-    #     redshift_conn_id="redshift_conn",
-    #     table="order_reviews_staging",
-    #     s3_bucket="brazillian-e-commerce-data-update",
-    #     s3_path="order_reviews",
-    #     s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
-    #     s3_secret_access_key="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",
-    #     delimiter=",",
-    #     region="ca-central-1")
-
-    # load_orders = S3ToRedshiftOperator(
-    #     task_id="load_orders",
-    #     redshift_conn_id="redshift_conn",
-    #     table="orders_staging",
-    #     s3_bucket="brazillian-e-commerce-data-update",
-    #     s3_path="orders",
-    #     s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
-    #     s3_secret_access_key="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",
-    #     delimiter=",",
-    #     region="ca-central-1")
-
-    # load_products = S3ToRedshiftOperator(
-    #     task_id="load_products",
-    #     redshift_conn_id="redshift_conn",
-    #     table="products_staging",
-    #     s3_bucket="brazillian-e-commerce-data-update",
-    #     s3_path="products",
-    #     s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
-    #     s3_secret_access_key="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",
-    #     delimiter=",",
-    #     region="ca-central-1")
-
-    # load_sellers = S3ToRedshiftOperator(
-    #     task_id="load_sellers",
-    #     redshift_conn_id="redshift_conn",
-    #     table="sellers_staging",
-    #     s3_bucket="brazillian-e-commerce-data-update",
-    #     s3_path="sellers",
-    #     s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
-    #     s3_secret_access_key="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",
-    #     delimiter=",",
-    #     region="ca-central-1")
-
-    # load_product_category_name_translation = S3ToRedshiftOperator(
-    #     task_id="load_product_category_name_translation",
-    #     redshift_conn_id="redshift_conn",
-    #     table="product_category_name_translation_staging",
-    #     s3_bucket="brazillian-e-commerce-data-update",
-    #     s3_path="product_category_name_translation",
-    #     s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
-    #     s3_secret_access_key="YqFeE2p3hD5nAZsLa2V7XCA5AzL16LFpvz1+uHT/",
-    #     delimiter=",",
-    #     region="ca-central-1")
-    
-    clean_order_reviews_dataset_4 = DummyOperator(
-            task_id='clean_order_reviews_dataset_4'
-     )
-    
-    upload_S3_customers_4 = DummyOperator(
-            task_id='upload_S3_customers_4'
-     )
-
-    upload_S3_geolocation_4 = DummyOperator(
-            task_id='upload_S3_geolocation_4'
-     )
+    upload_S3_product_category_name_translation_3 = PythonOperator(
+                    task_id='upload_S3_product_category_name_translation_3',
+                    python_callable=upload_file_to_S3_with_hook,
+                    op_kwargs={'filename' : '/usr/local/airflow/dags/dags/data_files_split/product_category_name_translation_part_3.csv',
+                                'key': 'product_category_name_translation_3.csv',
+                                'bucket_name': 'brazillian-e-commerce-data-update'}
+            )
 
 
-    upload_S3_order_items_4 = DummyOperator(
-            task_id='upload_S3_order_items_4'
-     )
+    load_customers = S3ToRedshiftOperator(
+        task_id="load_customers",
+        redshift_conn_id="redshift_conn",
+        table="customers_staging",
+        s3_bucket="brazillian-e-commerce-data-update",
+        s3_path="customers",
+        s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
+        s3_secret_access_key="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",
+        delimiter=",",
+        region="ca-central-1")
 
+    load_geolocation = S3ToRedshiftOperator(
+        task_id="load_geolocation",
+        redshift_conn_id="redshift_conn",
+        table="geolocation_staging",
+        s3_bucket="brazillian-e-commerce-data-update",
+        s3_path="geolocation",
+        s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
+        s3_secret_access_key="YqFeE2p3hD5nAZsLa2V7XCA5AzL16LFpvz1+uHT/",
+        delimiter=",",
+        region="ca-central-1")
 
-    upload_S3_order_payments_4 = DummyOperator(
-            task_id='upload_S3_order_payments_4'
-     )
+    load_order_items = S3ToRedshiftOperator(
+        task_id="load_order_items",
+        redshift_conn_id="redshift_conn",
+        table="order_items_staging",
+        s3_bucket="brazillian-e-commerce-data-update",
+        s3_path="order_items",
+        s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
+        s3_secret_access_key="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",
+        delimiter=",",
+        region="ca-central-1")
 
+    load_order_payments = S3ToRedshiftOperator(
+        task_id="load_order_payments",
+        redshift_conn_id="redshift_conn",
+        table="order_payments_staging",
+        s3_bucket="brazillian-e-commerce-data-update",
+        s3_path="order_payments",
+        s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
+        s3_secret_access_key="YqFeE2p3hD5nAZsLa2V7XCA5AzL16LFpvz1+uHT/",
+        delimiter=",",
+        region="ca-central-1")
 
-    upload_S3_order_reviews_4 = DummyOperator(
-            task_id='upload_S3_order_reviews_4'
-     )
+    load_order_reviews = S3ToRedshiftOperator(
+        task_id="load_order_reviews",
+        redshift_conn_id="redshift_conn",
+        table="order_reviews_staging",
+        s3_bucket="brazillian-e-commerce-data-update",
+        s3_path="order_reviews",
+        s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
+        s3_secret_access_key="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",
+        delimiter=",",
+        region="ca-central-1")
 
+    load_orders = S3ToRedshiftOperator(
+        task_id="load_orders",
+        redshift_conn_id="redshift_conn",
+        table="orders_staging",
+        s3_bucket="brazillian-e-commerce-data-update",
+        s3_path="orders",
+        s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
+        s3_secret_access_key="YqFeE2p3hD5nAZsLa2V7XCA5AzL16LFpvz1+uHT/",
+        delimiter=",",
+        region="ca-central-1")
 
-    upload_S3_orders_4 = DummyOperator(
-            task_id='upload_S3_orders_4'
-     )
+    load_products = S3ToRedshiftOperator(
+        task_id="load_products",
+        redshift_conn_id="redshift_conn",
+        table="products_staging",
+        s3_bucket="brazillian-e-commerce-data-update",
+        s3_path="products",
+        s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
+        s3_secret_access_key="YqFeE2p3hD5nAZsLa2V7XCA5AzL16LFpvz1+uHT/",
+        delimiter=",",
+        region="ca-central-1")
 
-    upload_S3_products_4 = DummyOperator(
-            task_id='upload_S3_products_4'
-     )
+    load_sellers = S3ToRedshiftOperator(
+        task_id="load_sellers",
+        redshift_conn_id="redshift_conn",
+        table="sellers_staging",
+        s3_bucket="brazillian-e-commerce-data-update",
+        s3_path="sellers",
+        s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
+        s3_secret_access_key="YqFeE2p3hD5nAZsLa2V7XCA5AzL16LFpvz1+uHT/",
+        delimiter=",",
+        region="ca-central-1")
 
-
-    upload_S3_sellers_4 = DummyOperator(
-            task_id='upload_S3_sellers_4'
-     )
-
-
-    upload_S3_product_category_name_translation_3 = DummyOperator(
-            task_id='upload_S3_product_category_name_translation_3'
-     )
-
-
-    load_customers = DummyOperator(
-            task_id='load_customers'
-     )
-
-    load_geolocation = DummyOperator(
-            task_id='load_geolocation'
-     )
-
-    load_order_items = DummyOperator(
-            task_id='load_order_items'
-     )
-
-    load_order_payments = DummyOperator(
-            task_id='load_order_payments'
-     )
-
-    load_order_reviews = DummyOperator(
-            task_id='load_order_reviews'
-     )
-
-    load_orders = DummyOperator(
-            task_id='load_orders'
-     )
-
-    load_products = DummyOperator(
-            task_id='load_products'
-     )
-
-    load_sellers = DummyOperator(
-            task_id='load_sellers'
-     )
-
-    load_product_category_name_translation = DummyOperator(
-            task_id='load_product_category_name_translation'
-     )
-
+    load_product_category_name_translation = S3ToRedshiftOperator(
+        task_id="load_product_category_name_translation",
+        redshift_conn_id="redshift_conn",
+        table="product_category_name_translation_staging",
+        s3_bucket="brazillian-e-commerce-data-update",
+        s3_path="product_category_name_translation",
+        s3_access_key_id="AKIAJMHHNA76JDW54MDQ",
+        s3_secret_access_key="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",
+        delimiter=",",
+        region="ca-central-1")
 	
     upsert_customers = RedshiftUpsertOperator(
         task_id='upsert_customers',
